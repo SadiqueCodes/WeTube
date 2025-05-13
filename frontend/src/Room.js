@@ -2,17 +2,10 @@ import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import io from "socket.io-client";
 import ReactPlayer from "react-player";
+import { socketConfig } from "./config/backend";
 import "./styles.css";
 
-
-
-const socket = io("https://backend-wetube-production.up.railway.app", {
-    transports: ["websocket", "polling"],  // ✅ Ensures WebSocket is used first, with polling fallback
-    reconnection: true,                    // ✅ Allows automatic reconnection if disconnected
-    reconnectionAttempts: 10,               // ✅ Tries to reconnect up to 10 times
-    reconnectionDelay: 1000                 // ✅ Waits 1 second before trying to reconnect
-  });
-  
+const socket = io(socketConfig.url, socketConfig.options);
 
 function Room() {
   const { roomCode } = useParams();
@@ -34,7 +27,6 @@ function Room() {
       }
     });
 
-    // 🔥 Listen for video URL updates
     socket.on("update-video-url", (url) => {
       setVideoUrl(url);
     });
@@ -56,7 +48,6 @@ function Room() {
     }
   };
 
-  // 🔥 Emit video URL change event
   const handleUrlChange = (e) => {
     const url = e.target.value;
     setVideoUrl(url);
@@ -72,17 +63,16 @@ function Room() {
         value={videoUrl}
         onChange={handleUrlChange}
       />
-          <div className="video-container">
-      <ReactPlayer
-        ref={playerRef}
-        url={videoUrl}
-        playing={playing}
-        controls
-        onPlay={handlePlay}
-        onPause={handlePause}
-      />
-          </div>
-
+      <div className="video-container">
+        <ReactPlayer
+          ref={playerRef}
+          url={videoUrl}
+          playing={playing}
+          controls
+          onPlay={handlePlay}
+          onPause={handlePause}
+        />
+      </div>
     </div>
   );
 }

@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
+import io from "socket.io-client";
+import { socketConfig } from "./config/backend";
 import "./Chat.css";
 
-function Chat({ socket, roomCode }) {
+const socket = io(socketConfig.url, socketConfig.options);
+
+function Chat({ roomCode }) {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
 
@@ -13,7 +17,7 @@ function Chat({ socket, roomCode }) {
     return () => {
       socket.off("chat-message");
     };
-  }, [socket]);
+  }, []);
 
   const sendMessage = () => {
     if (message.trim() !== "") {
