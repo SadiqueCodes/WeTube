@@ -1,0 +1,139 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Ensure you link the correct font */
+}
+
+/* Body Styling */
+body {
+    background-color: #121212;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* App & Home Page Container */
+.app-container, .home-container {
+    text-align: center;
+    background: #1E1E1E;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    width: 350px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #2E2E2E;
+    color: white;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #FF0000;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #D10000;
+}
+
+/* Room Page */
+.room-container {
+    width: 100%; /* Increase width */
+    max-width: 900px; /* Make it wider */
+    text-align: center;
+    background: #1E1E1E;
+    padding: 40px; /* Increase padding for more spacing */
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Make video container fill the room-container */
+.video-container {
+    width: 100%; /* Use full width */
+    max-width: 800px; /* Increase max width */
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 15px;
+    background: #000; /* Ensures full black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Push video down */
+
+}
+
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+
+
+.video-input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #2E2E2E;
+    color: white;
+}
+
+.load-button {
+    background: #FF0000;
+}
+
+.load-button:hover {
+    background: #D10000;
+}
+
+/* Player */
+.player-wrapper {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.room-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.leave-button {
+    background: #444;
+}
+
+.leave-button:hover {
+    background: #666;
+}
+
